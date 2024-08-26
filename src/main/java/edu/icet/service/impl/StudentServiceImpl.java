@@ -30,4 +30,14 @@ public class StudentServiceImpl implements StudentService {
     public void deleteStudentById(Integer id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public List<Student> findByName(String name) {
+        return repository.findByName(name);
+    }
+
+    @Override
+    public List<Student> findByAddress(String address) {
+        return repository.findByAddress(address);
+    }
 }

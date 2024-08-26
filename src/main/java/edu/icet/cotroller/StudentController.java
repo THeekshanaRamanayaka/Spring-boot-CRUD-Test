@@ -8,17 +8,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class StudentController {
 
     @Autowired
     StudentService service;
 
-    @GetMapping("/get")
+    @GetMapping
     public List<Student> getStudent(){
         return service.getStudent();
     }
 
-    @PostMapping("/post")
+    @PostMapping
     public void addStudent(@RequestBody Student student){
         service.addStudent(student);
     }
@@ -31,5 +32,15 @@ public class StudentController {
     @PutMapping
     public void updateStudent(@RequestBody Student student){
         service.addStudent(student);
+    }
+
+    @GetMapping("/find-by-name/{name}")
+    public List<Student> findBYName(@PathVariable String name){
+        return service.findByName(name);
+    }
+
+    @GetMapping("/find-by-address/{address}")
+    public List<Student> findByAddress(@PathVariable String address){
+        return service.findByAddress(address);
     }
 }

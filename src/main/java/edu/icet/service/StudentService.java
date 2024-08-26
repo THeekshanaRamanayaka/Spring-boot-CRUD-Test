@@ -8,4 +8,6 @@ public interface StudentService {
     List<Student> getStudent();
     void addStudent(Student student);
     void deleteStudentById(Integer id);
+    List<Student> findByName(String name);
+    List<Student> findByAddress(String address);
 }
